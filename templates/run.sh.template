@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run --rm -i -t --privileged --mount type=bind,source=MOUNTSOURCE,target=MOUNTTARGET DOCKERHUBUSERNAME/devenv_cvmfs:sl7

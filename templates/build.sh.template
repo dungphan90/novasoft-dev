@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker build -t DOCKERHUBUSERNAME/devenv_cvmfs:sl7 -f Dockerfile .
+docker push DOCKERHUBUSERNAME/devenv_cvmfs:sl7

@@ -1,0 +1,3 @@
+[submodule "novasoft/git-test-trimmed"]
+	path = novasoft/git-test-trimmed
+	url = git@github.com:dungphan90/git-test-trimmed.git

@@ -1,0 +1,26 @@
+FROM lyonfnal/devenv:sl7
+
+ENV USER=username
+
+# Set the time correctly
+RUN echo 'ZONE="America/Chicago"' > /etc/sysconfig/clock
+RUN rm -rf /etc/localtime
+RUN ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
+
+# Install cvmfs and configure
+RUN yum install -y osg-oasis sshfs
+RUN /bin/echo CVMFS_REPOSITORIES="`echo $((ls /cvmfs)|sort -u)|tr ' ' ,`" > /etc/cvmfs/default.local
+RUN /bin/echo CVMFS_QUOTA_LIMIT=20000 >> /etc/cvmfs/default.local
+RUN /bin/echo CVMFS_HTTP_PROXY=DIRECT >> /etc/cvmfs/default.local
+
+RUN cvmfs_config setup
+
+RUN sudo yum install -y vim git svn 
+RUN mkdir -p /home/$USER/novasoft
+WORKDIR /home/$USER/novasoft
+
+ENV CVMFS_EXP=nova.opensciencegrid.org
+COPY start_cvmfs.sh /usr/local/bin/start_cvmfs.sh
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
+ENTRYPOINT docker-entrypoint.sh
