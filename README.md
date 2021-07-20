@@ -2,7 +2,7 @@ Developing NOvASoft on your own personal computer.
 - Dependencies are handled by SL7 docker with CVMFS installed. Credit of this work goes to Adam L. Lyon. See https://github.com/lyon-fnal/devenv for detailed information of the development environment. This is tested to run on Mac. It also works on Arch and Ubuntu.
 - Using CMake build here. Later on, I woud like to use CLion to read the build the code. The JetBrain's IntelliSense is just too good for me to not use. I followed this tutorial (https://blog.jetbrains.com/clion/2020/01/using-docker-with-clion/) to make CLion to work with Docker. CLion is free for students and offers hefty discount for educators, and I strongly recommend it. I paid for it after 5 years of free student lisence.
 - FNAL developed a really useful tool to assist buildng multiple products in a single area. Please see https://cdcvs.fnal.gov/redmine/projects/novaart/wiki/Editing_Code_with_CMake_and_buildtool to learn more about this tool.
-- NOvaSoft has started to migrate to git so we will try to use git repo instead of SVN repo.      
+- NOvaSoft has started to migrate to git so we will try to use git repo instead of SVN repo. For now, I only use the `dev-cmake` branch of `https://github.com/dungphan90/git-test-trimmed`. Soon, I will update the `mrb` script to allow to pick any branch or tag that I need.
 ---
 
 How to use this.
